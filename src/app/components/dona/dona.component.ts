@@ -1,6 +1,5 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
-import { ChartData, ChartType,Color } from 'chart.js';
+import { ChartData } from 'chart.js';
 
 @Component({
   selector: 'app-dona',
