@@ -7,6 +7,7 @@ import { Observable,of } from 'rxjs';
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { LoginForm } from '../interfaces/login-form.interface';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/usuarios.model';
 
 
 
@@ -19,9 +20,11 @@ declare const gapi: any;
 export class UsuarioService {
 
   public auth2: any;
+  public usuario!: Usuario;
 
   constructor(private http: HttpClient, private router: Router, private ngZone: NgZone) {
-    this.googleInit();  
+    this.googleInit(); 
+    
   }
 
 
@@ -66,11 +69,16 @@ export class UsuarioService {
         'x-token': token
       }
     }).pipe(
-      tap( (resp: any) => {
+      map( (resp: any) => {
+        const { nombre, google, email, role, uid, img='' } = resp.usuario;
+        this.usuario = new Usuario(nombre,email,'',img, google, role, uid);
         if(!token===undefined || !token) localStorage.setItem('token', resp.token );
+        return true;
       }),
-      map( resp => true),
-      catchError( error => of(false) )
+      catchError( error => {
+        console.error(error)
+        return of(false)
+      } )
     );
 
   }
