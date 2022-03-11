@@ -227,26 +227,26 @@
         <!-- Profile -->
         <!-- ============================================================== -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"><img [src]="usuario.img" alt="user"
+          <a class="nav-link dropdown-toggle waves-effect waves-dark perfil" href="" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><img referrerpolicy="no-referrer" [src]="usuario.imagenUrl" alt="user"
               class="profile-pic" /></a>
           <div class="dropdown-menu dropdown-menu-right animated fadeIn fast">
             <ul class="dropdown-user">
               <li>
                 <div class="dw-user-box">
                   <div class="u-img">
-                    <img [src]="usuario.img" alt="user"/>
+                    <img referrerpolicy="no-referrer" class="img-userbox" [src]="usuario.imagenUrl" alt="user"/>
                   </div>
                   <div class="u-text">
                     <h4>{{ usuario.nombre }}</h4>
-                    <p class="text-muted">{{ usuario.email }}</p>
+                    <p class="text-muted">{{ usuario.email | slice:0:24 }} {{(usuario.email.length>24)?'...':''}}</p>
                     <a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
                   </div>
                 </div>
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="#"><i class="ti-user"></i> My Profile</a>
+                <a routerLink="./perfil"><i class="ti-user"></i> My Profile</a>
               </li>
               <li>
                 <a href="#"><i class="ti-wallet"></i> My Balance</a>

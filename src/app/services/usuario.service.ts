@@ -27,7 +27,13 @@ export class UsuarioService {
     
   }
 
+  get token(): string{
+    return localStorage.getItem('token') || '';
+  }
 
+  get uid(): string {
+    return this.usuario.uid || '';
+  }
 
 
 
@@ -62,21 +68,18 @@ export class UsuarioService {
 
   validarToken(): Observable<boolean> {
 
-    const token = localStorage.getItem('token') || '';
-
     return this.http.get(`${ base_url }/login/renew`, {
       headers: {
-        'x-token': token
+        'x-token': this.token
       }
     }).pipe(
       map( (resp: any) => {
         const { nombre, google, email, role, uid, img='' } = resp.usuario;
         this.usuario = new Usuario(nombre,email,'',img, google, role, uid);
-        if(!token===undefined || !token) localStorage.setItem('token', resp.token );
+        if(!this.token===undefined || !this.token) localStorage.setItem('token', resp.token );
         return true;
       }),
       catchError( error => {
-        console.error(error)
         return of(false)
       } )
     );
@@ -108,6 +111,16 @@ export class UsuarioService {
               );
   }
 
+
+
+  actualizarPerfil(data: {email:string, nombre: string}){
+
+    return this.http.put(`${ base_url }/usuarios/${this.uid}`, data, {
+      headers: {
+        'x-token': this.token
+      }
+    });
+  }
 
 
 

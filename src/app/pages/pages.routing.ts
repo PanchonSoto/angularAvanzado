@@ -9,6 +9,7 @@ import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -23,7 +24,8 @@ const routes: Routes = [
       { path: 'grafica1', component: Grafica1Component, data: {titulo: 'Grafica No. 1'} },
       { path: 'account-settings', component: AccontSettingsComponent, data: {titulo: 'Ajustes'} },
       { path: 'promesas', component: PromesasComponent, data: {titulo: 'Promesas'} },
-      { path: 'rxjs', component: RxjsComponent, data: {titulo: 'RxJS'} }
+      { path: 'rxjs', component: RxjsComponent, data: {titulo: 'RxJS'} },
+      { path: 'perfil', component: PerfilComponent, data: {titulo: 'Perfil de usuario'} }
     ],
   },
 ];

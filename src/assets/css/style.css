@@ -1085,7 +1085,7 @@ File: scss
         overflow: hidden;
         background-color: rgba(120, 130, 140, 0.13); }
       .topbar ul.dropdown-user li .dw-user-box {
-        padding: 10px 15px; }
+        padding: 10px 10px; }
         .topbar ul.dropdown-user li .dw-user-box .u-img {
           width: 70px;
           display: inline-block;
@@ -1095,7 +1095,7 @@ File: scss
             border-radius: 5px; }
         .topbar ul.dropdown-user li .dw-user-box .u-text {
           display: inline-block;
-          padding-left: 10px; }
+          padding-left: 5px; }
           .topbar ul.dropdown-user li .dw-user-box .u-text h4 {
             margin: 0px;
             font-size: 15px; }
