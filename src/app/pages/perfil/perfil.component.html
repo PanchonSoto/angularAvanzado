@@ -65,7 +65,7 @@
                  class="img-avatar mb-2" 
                 />
 
-                <img *ngIf="imgTemp" [src]="imgTemp"  class="img-avatar mb-2" />
+                <img *ngIf="imgTemp" [src]="imgTemp"  class="img-avatar mb-2" alt="{{usuario.nombre}}"/>
                 <input type="file" (change)="cambiarImagen($event)"/>
             </div>
       
